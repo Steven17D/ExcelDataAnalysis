@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Ex = Microsoft.Office.Interop.Excel; 
+using Ex = Microsoft.Office.Interop.Excel;
 
 namespace Excel
 {
@@ -16,7 +10,8 @@ namespace Excel
     {
         private Dictionary<string, Dictionary<string, double>> info;
         private string dataType;
-        public Summary(Dictionary<string,Dictionary<string,double>> _info, string _dataType)
+
+        public Summary(Dictionary<string, Dictionary<string, double>> _info, string _dataType)
         {
             InitializeComponent();
             info = _info;
@@ -30,7 +25,7 @@ namespace Excel
             Dictionary<string, double> productInfo;
             data.Columns.Add("Product name", "Product name");
             int index;
-            foreach (KeyValuePair<string,Dictionary<string,double>> product in info)
+            foreach (KeyValuePair<string, Dictionary<string, double>> product in info)
             {
                 productName = product.Key;
                 productScraps = product.Value.Keys;
