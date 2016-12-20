@@ -208,6 +208,10 @@ namespace Excel
                         dataGridView.Rows[rows].Cells[0].Value = "Gemini CS";
                         break;
 
+                    case "Gemini 3 CS - 300":
+                        dataGridView.Rows[rows].Cells[0].Value = "Gemini 3 CS";
+                        break;
+
                     case "Gemini Long - 360":
                         dataGridView.Rows[rows].Cells[0].Value = "Gemini";
                         break;
