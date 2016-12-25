@@ -1,0 +1,1 @@
+pyinstaller -F -i ADAM.ico ExcelReformate.py
