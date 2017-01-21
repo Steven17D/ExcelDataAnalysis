@@ -17,8 +17,8 @@ missing module named itertools.repeat - imported by itertools, collections, deci
 missing module named itertools.imap - imported by itertools, heapq, collections
 missing module named itertools.tee - imported by itertools, heapq
 missing module named itertools.izip - imported by itertools, heapq
+missing module named itertools.chain - imported by itertools, heapq, tokenize, collections, decimal
 missing module named itertools.count - imported by itertools, heapq, threading
-missing module named itertools.chain - imported by itertools, tokenize, heapq, collections, decimal
 missing module named org.PyStringMap - imported by org, copy
 missing module named org - imported by copy
 missing module named exceptions.ReferenceError - imported by exceptions, weakref
@@ -44,7 +44,7 @@ missing module named binascii.a2b_qp - imported by binascii, quopri
 missing module named binascii.hexlify - imported by binascii, random
 missing module named errno.EINVAL - imported by errno, StringIO
 missing module named errno.ENOENT - imported by errno, gettext
-missing module named cStringIO.StringIO - imported by cStringIO, gettext, pprint, shlex, tempfile, pickle, tarfile, xlrd.timemachine, socket, quopri, httplib, email.parser, email.message, email.generator, email.iterators, urllib, xml.sax, encodings.uu_codec, encodings.quopri_codec
+missing module named cStringIO.StringIO - imported by cStringIO, pprint, shlex, tempfile, pickle, tarfile, xlrd.timemachine, socket, quopri, httplib, email.parser, email.message, email.generator, email.iterators, urllib, xml.sax, encodings.uu_codec, encodings.quopri_codec
 missing module named struct.pack - imported by struct, xlwt.BIFFRecords, xlwt.UnicodeUtils, xlwt.Bitmap, xlwt.Cell
 missing module named struct.unpack - imported by struct, xlrd.biffh, xlrd.formula, xlrd.sheet, xlrd.formatting, xlrd.compdoc, xlwt.Bitmap, xlwt.Cell
 missing module named struct.calcsize - imported by struct, ctypes, xlrd.sheet

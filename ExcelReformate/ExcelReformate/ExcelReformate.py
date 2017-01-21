@@ -64,16 +64,15 @@ def reformate(data,title):
     title = title[:6]
     title = map(lambda x: x.replace('_1','') ,title)
     title = map(lambda x: x.replace('1','') ,title)
-    for rowNum, rowData in enumerate(data):
-        newData.append(rowData[:3] + rowData[3:6]) # append ==> [ProductType, RunName, Total_Scrap] + [ID,Scrap,Reason]
-        newData.append(['','','',''] + rowData[6:8])
-        newData.append(['','','',''] + rowData[8:10])
-        for x in range(1,6): # append ==> [ID,Scrap,Reason] * 5
-            idOff = 3 + x*7 # offset [ProductType, RunName, Total_Scrap] which is len 3 and every ID+Scraps len is 7
-            newData.append(['','',''] + rowData[idOff:idOff+3])
-            for y in range(1,3): # append ==> [Scrap,Reason] [Scrap,Reason]
-                scrapOff = idOff + y*3
-                newData.append(['','','',''] + rowData[scrapOff:scrapOff+2])
+    for rowData in data:
+        mainInfo = rowData[:3]
+        rowData = rowData[3:]
+        for idOffset in xrange(0,42,7):
+            currentID = [rowData[idOffset]]
+            idData = rowData[idOffset+1:idOffset+7]
+            for scrapOffset in xrange(0,6,2):
+                scrapInfo = idData[scrapOffset:scrapOffset+2]
+                newData.append(mainInfo + currentID + scrapInfo)
     newData.insert(0,title)
     return newData
 
