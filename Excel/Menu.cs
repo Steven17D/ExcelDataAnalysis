@@ -414,7 +414,7 @@ namespace Excel
                     {
                         DataGridViewCell cell = row.Cells[i];
                         if (cell.Size.IsEmpty) { continue; }
-                        if (cell.ValueType == typeof(double))
+                        if (cell.Value is double)
                         {
                             if ((double)cell.Value != 0)
                             {
@@ -440,7 +440,7 @@ namespace Excel
                     }
                     catch (Exception ex)
                     {
-                        //MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }

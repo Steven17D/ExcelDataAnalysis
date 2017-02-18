@@ -38,7 +38,12 @@ namespace Excel
                     {
                         data.Columns.Add(scrapName, scrapName);
                     }
-                    data.Rows[index].Cells[scrapName].Value = productInfo[scrapName];
+                    if (data.Rows[index].Cells[scrapName].Value == null)
+                    {
+                        data.Rows[index].Cells[scrapName].Value = 0;
+                    }
+                    double scrapValue = double.Parse(data.Rows[index].Cells[scrapName].Value.ToString());
+                    data.Rows[index].Cells[scrapName].Value = scrapValue + productInfo[scrapName];
                 }
             }
 
@@ -115,7 +120,7 @@ namespace Excel
 
         private void exportData(DataGridView d, string filename)
         {
-            /*string stOutput = "";
+            /** string stOutput = "";
             // Export titles:
             string sHeaders = "";
 
@@ -138,6 +143,7 @@ namespace Excel
             bw.Flush();
             bw.Close();
             fs.Close();*/
+
             Ex.Application xlApp;
             Ex.Workbook xlWorkBook;
             Ex.Worksheet xlWorkSheet;
@@ -160,13 +166,22 @@ namespace Excel
                 i = 0;
             }
 
-            xlWorkBook.SaveAs(filename, Ex.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Ex.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            xlWorkBook.Close(true, misValue, misValue);
+            try
+            {
+                xlWorkBook.SaveAs(filename, Ex.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Ex.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.Close(true, misValue, misValue);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
             xlApp.Quit();
 
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
+
+            System.Diagnostics.Process.Start(filename);
         }
 
         private void releaseObject(object obj)
