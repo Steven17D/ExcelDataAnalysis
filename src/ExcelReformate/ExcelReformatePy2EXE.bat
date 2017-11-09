@@ -1,0 +1,1 @@
+pyinstaller --clean -D -F -i "..\..\res\ADAM.ico" ExcelReformate.py
