@@ -1,0 +1,1 @@
+pyinstaller --clean -D -F -i "..\..\res\smiley.ico" UsedRollRemover.py && del UsedRollRemover.spec && rmdir /S /Q build;

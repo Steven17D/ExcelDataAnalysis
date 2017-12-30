@@ -1,1 +1,0 @@
-pyinstaller --clean -D -F -i "..\..\res\smiley.ico" NotUsedRemover.py
