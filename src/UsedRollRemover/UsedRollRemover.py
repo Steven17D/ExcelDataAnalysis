@@ -53,9 +53,8 @@ class ExcelFile(object):
         for row_index, row_data in enumerate(self.data):
             for column_index, cell_data in enumerate(row_data):
                 if (isinstance(cell_data, str) or isinstance(cell_data, unicode)) and cell_data == TARGET_STRING:
-                    if column_index > 0:
-                        self.data[row_index][column_index] = ''
-                        self.data[row_index][column_index-1] = 0
+                    self.data[row_index][column_index] = ''
+                    self.data[row_index][column_index+1] = 0
 
 
 def change_basename(path):
